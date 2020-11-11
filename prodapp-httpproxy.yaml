@@ -1,0 +1,18 @@
+apiVersion: projectcontour.io/v1
+kind: HTTPProxy
+metadata:
+  name: prodapp
+  namespace: prodapp
+spec:
+  virtualhost:
+    fqdn: prodapp.example.com
+    tls:
+      secretName: my-wildcard-tls
+    authorization:
+      extensionRef:
+        name: oauth2-proxy
+        namespace: oauth2-proxy
+  routes:
+  - services:
+    - name: prodapp
+      port: 80
