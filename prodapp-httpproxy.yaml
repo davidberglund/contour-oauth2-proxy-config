@@ -10,8 +10,8 @@ spec:
       secretName: my-wildcard-tls
     authorization:
       extensionRef:
-        name: oauth2-proxy
-        namespace: oauth2-proxy
+        name: prodapp
+        namespace: prodapp
   routes:
   - services:
     - name: prodapp
